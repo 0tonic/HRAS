@@ -25,7 +25,7 @@ This repository contains a laravel 12 template that comes pre-configured with au
 ### Installation Steps
 1. Clone the repository:
     ```bash
-    git clone https://github.com/vickymaulana/laravel11-stisla.git
+    https://github.com/kkoze/myPassportWebFramework.git
     ```
 
 2. Navigate into the project directory:
