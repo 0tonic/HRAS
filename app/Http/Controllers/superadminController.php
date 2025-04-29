@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\hakakses;
+use App\Models\superadmin;
 use Illuminate\Http\Request;
 
-class HakaksesController extends Controller
+class superadminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,11 @@ class HakaksesController extends Controller
         //
         $search = $request->get('search');
         if ($search) {
-            $data['hakakses'] = hakakses::where('id', 'like', "%{$search}%")->get();
+            $data['superadmin'] = superadmin::where('id', 'like', "%{$search}%")->get();
         } else {
-            $data['hakakses'] = hakakses::all();
+            $data['superadmin'] = superadmin::all();
         }
-        return view('layouts.hakakses.index', $data);
+        return view('layouts.superadmin.index', $data);
     }
 
     /**
@@ -41,7 +41,7 @@ class HakaksesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(hakakses $hakakses)
+    public function show(superadmin $superadmin)
     {
         //
     }
@@ -52,28 +52,28 @@ class HakaksesController extends Controller
     public function edit($id)
     {
         //
-        $hakakses = hakakses::find($id);
-        return view('layouts.hakakses.edit', compact('hakakses'));
+        $superadmin = superadmin::find($id);
+        return view('layouts.superadmin.edit', compact('superadmin'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, hakakses $hakakses, $id)
+    public function update(Request $request, superadmin $superadmin, $id)
     {
         //
-        $hakakses = hakakses::find($id);
-        $hakakses->role = $request->role;
-        $hakakses->save();
-        return redirect()->route('hakakses.index');
+        $superadmin = superadmin::find($id);
+        $superadmin->role = $request->role;
+        $superadmin->save();
+        return redirect()->route('superadmin.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(hakakses $hakakses)
+    public function destroy(superadmin $superadmin)
     {
         //
-        $hakakses->delete();
+        $superadmin->delete();
     }
 }

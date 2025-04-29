@@ -18,10 +18,10 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/profile/password', [ProfileController::class, 'password'])->name('profile.password');
     Route::get('/blank-page', [App\Http\Controllers\HomeController::class, 'blank'])->name('blank');
 
-    Route::get('/hakakses', [App\Http\Controllers\HakaksesController::class, 'index'])->name('hakakses.index')->middleware('superadmin');
-    Route::get('/hakakses/edit/{id}', [App\Http\Controllers\HakaksesController::class, 'edit'])->name('hakakses.edit')->middleware('superadmin');
-    Route::put('/hakakses/update/{id}', [App\Http\Controllers\HakaksesController::class, 'update'])->name('hakakses.update')->middleware('superadmin');
-    Route::delete('/hakakses/delete/{id}', [App\Http\Controllers\HakaksesController::class, 'destroy'])->name('hakakses.delete')->middleware('superadmin');
+    Route::get('/superadmin', [App\Http\Controllers\superadminController::class, 'index'])->name('superadmin.index')->middleware('superadmin');
+    Route::get('/superadmin/edit/{id}', [App\Http\Controllers\superadminController::class, 'edit'])->name('superadmin.edit')->middleware('superadmin');
+    Route::put('/superadmin/update/{id}', [App\Http\Controllers\superadminController::class, 'update'])->name('superadmin.update')->middleware('superadmin');
+    Route::delete('/superadmin/delete/{id}', [App\Http\Controllers\superadminController::class, 'destroy'])->name('superadmin.delete')->middleware('superadmin');
 
     Route::get('/table-example', [App\Http\Controllers\ExampleController::class, 'table'])->name('table.example');
     Route::get('/clock-example', [App\Http\Controllers\ExampleController::class, 'clock'])->name('clock.example');

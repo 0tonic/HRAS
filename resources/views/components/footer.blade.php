@@ -1,8 +1,7 @@
 <footer class="main-footer">
     <div class="footer-left">
-        &copy; 2024 Vicky Maulana | <a href="https://www.vickymaulana.my.id">My Portofolio</a>
+            &copy; {{ date('Y') }} by Ed Cezar Lampitoc | Powered by Laravel 12
     </div>
     <div class="footer-right">
-        1.0.0
     </div>
 </footer>
