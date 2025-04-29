@@ -12,13 +12,13 @@
         <div class="section-header">
             <h1>Edit Data Hak Akses</h1>
         </div>
-        <form action="{{ route('hakakses.update', $hakakses->id) }}" method="POST">
+        <form action="{{ route('superadmin.update', $superadmin->id) }}" method="POST">
                 @csrf
                 @method('PUT')
 
                 <div class="form-group">
                     <label for="name">Hak Akses</label>
-                    <input type="text" name="role" id="role" class="form-control" value="{{ $hakakses->role }}">
+                    <input type="text" name="role" id="role" class="form-control" value="{{ $superadmin->role }}">
                 </div>
 
 
