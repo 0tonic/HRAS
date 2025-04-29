@@ -3651,3 +3651,24 @@ body.layout-3 .main-wrapper {
     opacity: 0;
   }
 }
+
+
+
+.custom-row {
+  display: flex;               /* Enables Flexbox */
+  justify-content: center;     /* Centers horizontally */
+  align-items: center;         /* Centers vertically */
+  height: 75vh;               /* Full viewport height */
+  width: 127vh; 
+  margin: 0;   
+}
+.card-header {
+  text-align: middle;           /* Ensures the card header is centered */
+  margin-top: 20px; 
+}
+
+h3 {
+  margin-bottom: 5px;          /* Space below the login text */
+  font-size: 1.5rem;            /* Adjust the font size of the title */
+  font-weight: bold;            /* Make the login title bold */
+}

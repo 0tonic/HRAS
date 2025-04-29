@@ -3,23 +3,26 @@
 @section('title', 'Login')
 
 @section('content')
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<div class="justify-content-center">
+    <div class="custom-row">
+        <div class="col-md-4">
+            <!-- Card for the login form -->
             <div class="card">
-                <div class="card-header text-center d-flex justify-content-center">
-                <div class="card-header">{{ __('Login') }}</div>
+                <!-- Card header with "Login" text -->
+                <div class="card-header text-center">
+                    <h3>{{ __('Login') }}</h3> <!-- Login text here -->
                 </div>
 
                 <div class="card-body">
+                    <!-- Login Form -->
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
+                        <!-- Email Field with Floating Label -->
+                        <div class="mb-3">
+                            <div class="form-floating">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <label for="email">{{ __('Email Address') }}</label>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -29,11 +32,11 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
+                        <!-- Password Field with Floating Label -->
+                        <div class="mb-3">
+                            <div class="form-floating">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <label for="password">{{ __('Password') }}</label>
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -43,23 +46,21 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
+                        <!-- Remember Me Checkbox -->
+                        <div class="mb-3 form-check">
+                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <label class="form-check-label" for="remember">
+                                {{ __('Remember Me') }}
+                            </label>
                         </div>
 
+                        <!-- Submit Button and Links -->
                         <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4 text-center">
+                            <div class="col-md-12 text-center">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
+
                                 <br>
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
@@ -67,15 +68,20 @@
                                     </a>
                                 @endif
                                 <br>
-                                <a class="btn btn-link" href="{{ route('register') }}">
-                                    {{ __('Dont have an account yet? Register here') }}
+                                <a class="btn btn-link" href="{{ route('register') }} ">
+                                    {{ __("Don't have an account yet? Register here") }}
                                 </a>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
+
+
+
+
 @endsection
