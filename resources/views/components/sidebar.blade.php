@@ -14,8 +14,8 @@
             </li>
             @if (Auth::user()->role == 'superadmin')
             <li class="menu-header">Hak Akses</li>
-            <li class="{{ Request::is('hakakses') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('hakakses') }}"><i class="fas fa-user-shield"></i> <span>Hak Akses</span></a>
+            <li class="{{ Request::is('superadmin') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('superadmin') }}"><i class="fas fa-user-shield"></i> <span>Hak Akses</span></a>
             </li>
             @endif
             <!-- profile ganti password -->
