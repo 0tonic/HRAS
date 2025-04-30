@@ -11,11 +11,11 @@
 
   <style>
     :root {
-      --glass-bg: rgba(255, 255, 255, 0.08);
-      --glass-border: rgba(255, 255, 255, 0.15);
-      --btn-bg: #5b5b5b;
-      --btn-hover: #2c2c2c;
-      --text-light: #dddddd;
+      --glass-bg: rgba(255, 255, 255, 0.4);   /* Softer glass effect */
+      --glass-border: rgba(255, 255, 255, 0.6); /* Light border */
+      --btn-bg: #f0f0f0;                          /* Light silver button */
+      --btn-hover: #e0e0e0;                       /* Slightly darker on hover */
+      --text-light: #333333;  
     }
 
     * {
@@ -27,18 +27,17 @@
     body {
       font-family: 'Space Mono', monospace;
       height: 100vh;
-      overflow: hidden;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(-45deg, #1b1b1b, #333333, #555555, #222222, #444444);
+      background: linear-gradient(-45deg, #a8e063, #56ab2f, #79c779, #4caf50, #2e7d32); /* Gradient background */
       background-size: 400% 400%;
-      animation: brutalistMove 12s ease-in-out infinite;
+      animation: gradientMove 12s ease-in-out infinite; /* Background gradient animation */
       color: var(--text-light);
+      margin: 0;
     }
 
-    @keyframes brutalistMove {
+    @keyframes gradientMove {
       0% { background-position: 0% 50%; }
       25% { background-position: 50% 50%; }
       50% { background-position: 100% 50%; }
@@ -47,48 +46,78 @@
     }
 
     .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
       padding: 2rem;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      width: 100%;
     }
 
     .glass {
       background: var(--glass-bg);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(6px);    /* Soft blur effect */
+      -webkit-backdrop-filter: blur(6px);
       border: 1px solid var(--glass-border);
-      border-radius: 15px;
-      padding: 3rem 2rem;
+      border-radius: 10px;
+      padding: 2rem;
       width: 90%;
-      max-width: 480px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-      animation: fadeIn 2s ease;
+      max-width: 400px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Light shadow */
+      opacity: 0;
+      animation: fadeInUp 1.2s ease forwards; /* Fade-in and slide-up effect */
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 2rem;
+      font-weight: 600;
       margin-bottom: 1rem;
-      background: linear-gradient(90deg, #666, #bbb);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: 2px;
+      color: #333;  /* Solid color for minimalism */
+      animation: slideIn 1s ease-out forwards; /* Slide-in effect */
     }
 
     p {
-      font-size: 1.2rem;
-      color: #bbbbbb;
+      font-size: 1rem;
+      color: #666;  /* Subtle text color */
       margin-bottom: 2rem;
     }
 
+    @keyframes slideIn {
+      0% { transform: translateY(-20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
     .btn {
+      display: block;
       padding: 1rem 3rem;
       background-color: var(--btn-bg);
-      color: white;
+      color: var(--text-light);
       border: none;
       border-radius: 6px;
-      font-weight: bold;
+      font-weight: 600;
       font-size: 1.1rem;
       text-decoration: none;
-      transition: background-color 0.4s ease;
+      margin-bottom: 1rem;      /* Adds space between buttons */
+      transition: background-color 0.3s ease;
+      opacity: 0;
+      animation: fadeInUp 1.5s ease forwards; /* Fade-in and slide-up for buttons */
+      animation-delay: 0.5s;  /* Delay for buttons to appear after the container */
+      width: 100%;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .btn:hover {
@@ -103,23 +132,47 @@
       padding: 1rem;
       font-size: 0.8rem;
       color: #888;
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(4px);
+      opacity: 0;
+      animation: fadeInUp 1.5s ease forwards;
+      animation-delay: 1s; /* Delay footer animation */
     }
 
-    @keyframes fadeIn {
-      0% {opacity: 0; transform: scale(0.9);}
-      100% {opacity: 1; transform: scale(1);}
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .glass {
+        width: 95%; /* Make the glass effect container slightly larger on mobile */
+        padding: 1.5rem;
+      }
+
+      .btn {
+        padding: 0.8rem 2rem; /* Slightly smaller buttons for mobile */
+        font-size: 1rem;
+      }
+
+      footer {
+        font-size: 0.7rem; /* Slightly smaller footer text */
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <div class="glass">
-      <h1>GLASS</h1>
-      <p>Secure. Brutal. Transparent. Built by Kkoze.</p>
-      <a href="{{ route('login') }}" class="btn">Enter Framework</a>
+<div class="container">
+    <div class="row justify-content-center">
+      <!-- Responsive Column Setup -->
+      <div class="col-lg-4 col-md-6 col-sm-8">
+        <div class="glass">
+          <img src="https://i1.wp.com/phmc.com.ph/wp-content/uploads/2020/05/uphmc-logo.png" alt="Logo" style="max-width: 25%; margin-bottom: 1rem;">
+          <h1>Attendance System</h1>
+          <a href="{{ route('UserCheckIn') }}" class="btn ms-3">EMPLOYEE CHECK IN</a>
+          <a href="{{ route('login') }}" class="btn me-3">ADMIN LOGIN</a>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -129,3 +182,4 @@
 
 </body>
 </html>
+

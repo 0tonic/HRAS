@@ -740,7 +740,7 @@ select.form-control:not([size]):not([multiple]) {
   position: static;
 }
 .card .card-body {
-  padding-top: 20px;
+  padding-top: 50px;
   padding-bottom: 20px;
 }
 .card .card-body .section-title {
@@ -2898,7 +2898,7 @@ pre {
   border: none;
   position: relative;
   margin-bottom: 30px;
-  padding: 20px;
+  padding: 30px;
   display: flex;
   align-items: center;
 }
@@ -3650,25 +3650,4 @@ body.layout-3 .main-wrapper {
     -webkit-transform: scale(1.2, 1.2);
     opacity: 0;
   }
-}
-
-
-
-.custom-row {
-  display: flex;               /* Enables Flexbox */
-  justify-content: center;     /* Centers horizontally */
-  align-items: center;         /* Centers vertically */
-  height: 75vh;               /* Full viewport height */
-  width: 127vh; 
-  margin: 0;   
-}
-.card-header {
-  text-align: middle;           /* Ensures the card header is centered */
-  margin-top: 20px; 
-}
-
-h3 {
-  margin-bottom: 5px;          /* Space below the login text */
-  font-size: 1.5rem;            /* Adjust the font size of the title */
-  font-weight: bold;            /* Make the login title bold */
 }

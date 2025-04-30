@@ -26,9 +26,12 @@
             <li class="{{ Request::is('profile/change-password') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('profile/change-password') }}"><i class="fas fa-key"></i> <span>Change Password</span></a>
             </li>
-            <li class="menu-header">Starter</li>
+            <li class="menu-header">HR CONTROLS</li>
             <li class="{{ Request::is('blank-page') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('blank-page') }}"><i class="far fa-square"></i> <span>Blank Page</span></a>
+                <a class="nav-link" href="{{ url('blank-page') }}"><i class="far fa-square"></i> <span>EMPLOYEE LIST</span></a>
+            </li>
+            <li class="{{ Request::is('time-in') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('time-in') }}"><i class="far fa-square"></i> <span>EMPLOYEE TIMEIN</span></a>
             </li>
             <li class="menu-header">Examples</li>
             <li class="{{ Request::is('table-example') ? 'active' : '' }}">

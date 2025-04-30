@@ -4,12 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ExampleController extends Controller
+class HRController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
     }
+
+// hr modules routes
+
+
+
+public function blank()
+{
+    return view('layouts.blank-page');
+}
+
+public function timein()
+{
+    return view('layouts.time-in');
+}
 
     public function table()
     {

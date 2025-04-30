@@ -11,10 +11,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -25,9 +21,14 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
-    public function blank()
+    public function checkIn()
     {
-        return view('layouts.blank-page');
+        // Your check-in logic here
+        return view('UserCheckIn');  // Or any other logic
+    }
+    public function adminlogin()
+    {
+        // Your check-in logic here
+        return view('auth.login');  // Or any other logic
     }
 }
