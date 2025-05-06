@@ -1,10 +1,12 @@
 <?php
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HRController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\superadminController;
+
+use App\Http\Controllers\CheckInController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -12,6 +14,10 @@ Route::get('/', function () {
 
 Route::get('UserCheckIn', [HomeController::class, 'checkIn'])->name('UserCheckIn');
 Route::get('/auth/login', [HomeController::class, 'adminlogin'])->name('login');
+
+Route::get('/time-in', [CheckInController::class, 'index'])->name('timein.index');
+Route::post('/check-in', [CheckInController::class, 'store'])->name('checkin.store');
+
 Auth::routes();
 
 

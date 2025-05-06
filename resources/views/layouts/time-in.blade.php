@@ -55,31 +55,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><img src="https://via.placeholder.com/50" class="employee-photo" alt="Photo"></td>
-                            <td>EMP001</td>
-                            <td>John Doe</td>
-                            <td>08:05 AM</td>
-                            <td>2025-04-30</td>
-                            <td style="color: green;">On Time</td> 
-                        </tr>
-                        <tr>
-                            <td><img src="https://via.placeholder.com/50" class="employee-photo" alt="Photo"></td>
-                            <td>EMP002</td>
-                            <td>Jane Smith</td>
-                            <td>08:25 AM</td>
-                            <td>2025-04-30</td>
-                            <td style="color: red;">Late</td> 
-                        </tr>
-                        <tr>
-                            <td><img src="https://via.placeholder.com/50" class="employee-photo" alt="Photo"></td>
-                            <td>EMP003</td>
-                            <td>Alex Johnson</td>
-                            <td>08:00 AM</td>
-                            <td>2025-04-30</td>
-                            <td style="color: green;">On Time</td> 
-                        </tr>
-                    </tbody>
+                        @foreach($checkIns as $checkIn)
+                            <tr>
+                                <td><img src="{{ asset('storage/' . $checkIn->image) }}" class="employee-photo" alt="Photo"></td>
+                                <td>{{ $checkIn->user_id }}</td>
+                                <td>{{ $checkIn->name }}</td>
+                                <td>{{ \Carbon\Carbon::parse($checkIn->time_in)->format('h:i A') }}</td>
+                                <td>{{ $checkIn->date }}</td>
+                                <td style="color: {{ $checkIn->status === 'On Time' ? 'green' : 'red' }};">{{ $checkIn->status }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
                 </table>
             </div>
         </div>
