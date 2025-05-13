@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CheckIn;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class CheckInController extends Controller
 {
@@ -40,9 +41,10 @@ class CheckInController extends Controller
         return redirect()->back()->with('success', 'Check-in recorded successfully.');
     }
 
-    public function index()
-    {
-        $checkIns = CheckIn::orderBy('created_at', 'desc')->get();
-        return view('time-in', compact('checkIns'));
-    }
+    // public function index()
+    // {
+    //     $checkIns = CheckIn::orderBy('created_at', 'desc')->get();
+        
+    //     return view('layouts.time-in', compact('checkIns'));
+    // }
 }

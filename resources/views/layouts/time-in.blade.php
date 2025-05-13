@@ -35,13 +35,12 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>EMPLOYEE TIME IN MODULE</h1>
+            <h1>LIST OF ATTENDEES</h1>
         </div>
         
         <div class="section-body center-content">
             <!-- Search Bar -->
-            <input type="text" id="search-bar" class="search-bar" placeholder="Search Employee.." onkeyup="filterTable()">
-
+            <input type="text" id="search-bar" class="search-bar form-control mb-4" placeholder="Search Employee.." onkeyup="filterTable()">
             <div class="table-container">
                 <table class="table table-bordered" id="employee-table">
                     <thead>
@@ -55,14 +54,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($checkIns as $checkIn)
+                        @foreach($data as $item)
                             <tr>
-                                <td><img src="{{ asset('storage/' . $checkIn->image) }}" class="employee-photo" alt="Photo"></td>
-                                <td>{{ $checkIn->user_id }}</td>
-                                <td>{{ $checkIn->name }}</td>
-                                <td>{{ \Carbon\Carbon::parse($checkIn->time_in)->format('h:i A') }}</td>
-                                <td>{{ $checkIn->date }}</td>
-                                <td style="color: {{ $checkIn->status === 'On Time' ? 'green' : 'red' }};">{{ $checkIn->status }}</td>
+                                <td><img src="{{ asset('storage/' . $item->image) }}" class="employee-photo" alt="Photo" width="100" height="100"></td>
+                                <td>{{ $item->user_id }}</td>
+                                <td>{{ $item->name }}</td>
+                                <td>{{ \Carbon\Carbon::parse($item->time_in)->format('h:i A') }}</td>
+                                <td>{{ $item->date }}</td>
+                                <td style="color: {{ $item->status === 'On Time' ? 'green' : 'red' }};">{{ $item->status }}</td>
                             </tr>
                         @endforeach
                         </tbody>

@@ -4,14 +4,12 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row d-flex justify-content-center align-items-center">
         <div class="col-12 col-sm-10 col-md-8 col-lg-5 col-xl-4">
-            <div class="card shadow-sm position-relative">
+            <div class="card shadow-sm">
                 <!-- Card header with logo -->
                 <div class="card-header bg-white d-flex justify-content-center align-items-center">
-                    <a href="{{ url('/') }}">
                         <img src="https://i1.wp.com/phmc.com.ph/wp-content/uploads/2020/05/uphmc-logo.png" alt="Logo" class="img-fluid" style="max-height: 100px;">
-                    </a>
                 </div>
 
                 <div class="card-body">
